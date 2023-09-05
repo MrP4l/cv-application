@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './EducationalExperience.css'
 
-function EducationalExperience({ schoolName, fromDate, toDate, handleSubmit }) {
+function EducationalExperience({ schoolName, fromDate, toDate, handleEdit, handleSubmit }) {
     return (
         <>
             <div>
@@ -38,6 +38,13 @@ function EducationalExperience({ schoolName, fromDate, toDate, handleSubmit }) {
                             onSubmit={handleSubmit}
                         />
                     </label>
+                    <button
+                        type="submit"
+                        name="edit"
+                        id="edit"
+                        onSubmit={handleEdit}
+                    > Edit
+                    </button>
                     <button
                         type="submit"
                         name="submit"

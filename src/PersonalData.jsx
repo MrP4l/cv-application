@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './PersonalData.css'
 
-function PersonalData({ firstName, lastName, address, email, phoneNumber, birthDate, linkedin, handleSubmit }) {
+function PersonalData({ firstName, lastName, address, email, phoneNumber, birthDate, linkedin, handleEdit, handleSubmit }) {
     return (
         <>
             <div>
@@ -15,7 +15,6 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
                             type='text'
                             name='first_Name'
                             id='firstName'
-                            onSubmit={handleSubmit}
                         />
                     </label>
                     <label>
@@ -26,7 +25,6 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
                             name="last_name"
                             type='text'
                             id='secondName'
-                            onSubmit={handleSubmit}
                         />
                     </label>
                     <label>
@@ -37,7 +35,6 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
                             name="address"
                             type='text'
                             id='address'
-                            onSubmit={handleSubmit}
                         />
                     </label>
                     <label>
@@ -48,7 +45,6 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
                             name="email"
                             type='email'
                             id='email'
-                            onSubmit={handleSubmit}
                         />
                     </label>
                     <label>
@@ -59,7 +55,6 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
                             name="phone_number"
                             type='tel'
                             id='phoneNumber'
-                            onSubmit={handleSubmit}
                         />
                     </label>
                     <label>
@@ -70,7 +65,6 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
                             name="birth_date"
                             type='date'
                             id='birthDate'
-                            onSubmit={handleSubmit}
                         />
                     </label>
                     <label>
@@ -81,9 +75,15 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
                             name="linkedin"
                             type='text'
                             id='firstName'
-                            onSubmit={handleSubmit}
                         />
                     </label>
+                    <button
+                        type="submit"
+                        name="edit"
+                        id="edit"
+                        onSubmit={handleEdit}
+                    > Edit
+                    </button>
                     <button
                         type="submit"
                         name="submit"
