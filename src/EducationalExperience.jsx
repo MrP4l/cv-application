@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './EducationalExperience.css'
 
-function EducationalExperience({ schoolName, titleOfStudy, dateOfStudy }) {
+function EducationalExperience({ schoolName, fromDate, toDate, handleSubmit }) {
     return (
         <>
             <div>
@@ -13,11 +13,38 @@ function EducationalExperience({ schoolName, titleOfStudy, dateOfStudy }) {
                             value={schoolName}
                             placeholder='School Name'
                             type='text'
-                            name='schoolName'
+                            name='school_name'
                             id='schoolName'
-                            onChange={onChange}
+                            onSubmit={handleSubmit}
                         />
                     </label>
+                    <label>
+                        From
+                        <input
+                            value={fromDate}
+                            type='date'
+                            name='from_date'
+                            id='fromDate'
+                            onSubmit={handleSubmit}
+                        />
+                    </label>
+                    <label>
+                        To
+                        <input
+                            value={toDate}
+                            type='date'
+                            name='to_date'
+                            id='toDate'
+                            onSubmit={handleSubmit}
+                        />
+                    </label>
+                    <button
+                        type="submit"
+                        name="submit"
+                        id="submit"
+                        onSubmit={handleSubmit}
+                    > Submit
+                    </button>
                 </form>
             </div>
         </>

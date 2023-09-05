@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './PersonalData.css'
 
-function PersonalData({ firstName, lastName, address, email, phoneNumber, birthDate, linkedin, onChange, submit }) {
+function PersonalData({ firstName, lastName, address, email, phoneNumber, birthDate, linkedin, handleSubmit }) {
     return (
         <>
             <div>
@@ -13,9 +13,9 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
                             value={firstName}
                             placeholder='First Name'
                             type='text'
-                            name='firstName'
+                            name='first_Name'
                             id='firstName'
-                            onChange={onChange}
+                            onSubmit={handleSubmit}
                         />
                     </label>
                     <label>
@@ -23,10 +23,10 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
                         <input
                             value={lastName}
                             placeholder='Last Name'
-                            name="lastName"
+                            name="last_name"
                             type='text'
                             id='secondName'
-                            onChange={onChange}
+                            onSubmit={handleSubmit}
                         />
                     </label>
                     <label>
@@ -37,7 +37,7 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
                             name="address"
                             type='text'
                             id='address'
-                            onChange={onChange}
+                            onSubmit={handleSubmit}
                         />
                     </label>
                     <label>
@@ -48,7 +48,7 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
                             name="email"
                             type='email'
                             id='email'
-                            onChange={onChange}
+                            onSubmit={handleSubmit}
                         />
                     </label>
                     <label>
@@ -56,10 +56,10 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
                         <input
                             value={phoneNumber}
                             placeholder='Phone Number'
-                            name="phoneNumber"
+                            name="phone_number"
                             type='tel'
                             id='phoneNumber'
-                            onChange={onChange}
+                            onSubmit={handleSubmit}
                         />
                     </label>
                     <label>
@@ -67,10 +67,10 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
                         <input
                             value={birthDate}
                             placeholder='Birth Date'
-                            name="birthDate"
+                            name="birth_date"
                             type='date'
                             id='birthDate'
-                            onChange={onChange}
+                            onSubmit={handleSubmit}
                         />
                     </label>
                     <label>
@@ -81,19 +81,18 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
                             name="linkedin"
                             type='text'
                             id='firstName'
-                            onChange={onChange}
+                            onSubmit={handleSubmit}
                         />
                     </label>
                     <button
                         type="submit"
                         name="submit"
                         id="submit"
-                        onClick={submit}
-                    > Sign In
+                        onSubmit={handleSubmit}
+                    > Submit
                     </button>
                 </form>
             </div>
-
         </>
     )
 
