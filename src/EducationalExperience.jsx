@@ -15,7 +15,6 @@ function EducationalExperience({ schoolName, fromDate, toDate, handleEdit, handl
                             type='text'
                             name='school_name'
                             id='schoolName'
-                            onSubmit={handleSubmit}
                         />
                     </label>
                     <label>
@@ -25,7 +24,6 @@ function EducationalExperience({ schoolName, fromDate, toDate, handleEdit, handl
                             type='date'
                             name='from_date'
                             id='fromDate'
-                            onSubmit={handleSubmit}
                         />
                     </label>
                     <label>
@@ -35,7 +33,6 @@ function EducationalExperience({ schoolName, fromDate, toDate, handleEdit, handl
                             type='date'
                             name='to_date'
                             id='toDate'
-                            onSubmit={handleSubmit}
                         />
                     </label>
                     <button
