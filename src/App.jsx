@@ -3,7 +3,8 @@ import './App.css'
 import PersonalData from './PersonalData.jsx'
 import Bio from './Bio.jsx'
 import EducationalExperience from './EducationalExperience.jsx'
-import PracticalExperience from './PracticalExperience'
+import PracticalExperience from './PracticalExperience.jsx'
+import PersonalDataOutput from './PersonalDataOutput.jsx'
 
 function App() {
 
@@ -15,6 +16,7 @@ function App() {
         <Bio />
         <EducationalExperience />
         <PracticalExperience />
+        <PersonalDataOutput />
       </div>
     </>
   )

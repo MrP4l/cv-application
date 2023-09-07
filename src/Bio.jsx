@@ -5,7 +5,7 @@ function Bio({ bioText, handleEdit, handleSubmit }) {
     return (
         <>
             <div>
-                <form>
+            <form onSubmit={handleSubmit}>
                     <h2>Me</h2>
                     <label>
                         Describe yourself
@@ -24,7 +24,6 @@ function Bio({ bioText, handleEdit, handleSubmit }) {
                         type="submit"
                         name="submit"
                         id="submit"
-                        onSubmit={handleSubmit}
                     > Submit
                     </button>
                 </form>

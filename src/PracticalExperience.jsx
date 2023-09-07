@@ -5,7 +5,7 @@ function PracticalExperience({ companyName, positionTitle, skillsRequired, fromD
     return (
         <>
             <div>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <h2>Practical Experience</h2>
                     <label>
                         Company Name
@@ -66,7 +66,6 @@ function PracticalExperience({ companyName, positionTitle, skillsRequired, fromD
                         type="submit"
                         name="submit"
                         id="submit"
-                        onSubmit={handleSubmit}
                     > Submit
                     </button>
                 </form>

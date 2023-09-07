@@ -5,7 +5,7 @@ function EducationalExperience({ schoolName, fromDate, toDate, handleEdit, handl
     return (
         <>
             <div>
-                <form>
+                <form onSubmit={handleSubmit}>
                     <h2>Educational Experience</h2>
                     <label>
                         School Name
@@ -46,7 +46,6 @@ function EducationalExperience({ schoolName, fromDate, toDate, handleEdit, handl
                         type="submit"
                         name="submit"
                         id="submit"
-                        onSubmit={handleSubmit}
                     > Submit
                     </button>
                 </form>

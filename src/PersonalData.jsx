@@ -5,7 +5,7 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
     return (
         <>
             <div>
-                <form className='personalData'>
+                <form className='personalData' onSubmit={handleSubmit}>
                     <h2>Personal Data</h2>
                     <label>
                         First name
@@ -88,7 +88,6 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
                         type="submit"
                         name="submit"
                         id="submit"
-                        onSubmit={handleSubmit}
                     > Submit
                     </button>
                 </form>
