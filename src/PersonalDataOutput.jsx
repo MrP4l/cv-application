@@ -2,9 +2,18 @@ import { useState } from 'react'
 import './PersonalDataOutput.css'
 
 function PersonalDataOutput({ firstName, lastName, address, email, phoneNumber, birthDate, linkedin }) {
+    const [data, setData] = useState({
+        firstName: "",
+        lastName: "",
+        address: "",
+        email: "",
+        phoneNumber: "",
+        birthDate: "",
+        linkedin: ""
+    })
     return (
         <>
-            <div>
+            <div id='personalDataOutput'>
                 <div id='firstName'>
                     {firstName}
                 </div>

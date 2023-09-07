@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './EducationalExperience.css'
 
-function EducationalExperience({ schoolName, fromDate, toDate, handleEdit, handleSubmit }) {
+function EducationalExperience({ schoolName, fromDate, toDate, handleChange, handleSubmit }) {
     return (
         <>
             <div>
@@ -15,6 +15,7 @@ function EducationalExperience({ schoolName, fromDate, toDate, handleEdit, handl
                             type='text'
                             name='school_name'
                             id='schoolName'
+                            onChange={handleChange}
                         />
                     </label>
                     <label>
@@ -24,6 +25,7 @@ function EducationalExperience({ schoolName, fromDate, toDate, handleEdit, handl
                             type='date'
                             name='from_date'
                             id='fromDate'
+                            onChange={handleChange}
                         />
                     </label>
                     <label>
@@ -33,13 +35,14 @@ function EducationalExperience({ schoolName, fromDate, toDate, handleEdit, handl
                             type='date'
                             name='to_date'
                             id='toDate'
+                            onChange={handleChange}
                         />
                     </label>
                     <button
                         type="submit"
                         name="edit"
                         id="edit"
-                        onSubmit={handleEdit}
+                        onChange={handleChange}
                     > Edit
                     </button>
                     <button

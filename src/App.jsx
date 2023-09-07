@@ -7,6 +7,28 @@ import PracticalExperience from './PracticalExperience.jsx'
 import PersonalDataOutput from './PersonalDataOutput.jsx'
 
 function App() {
+  const [data, setData] = useState({
+    firstName: "",
+    lastName: "",
+    address: "",
+    email: "",
+    phoneNumber: "",
+    birthDate: "",
+    linkedin: "",
+    bioText: "",
+    schoolName: "",
+    fromDate: "",
+    toDate: "",
+    companyName: "",
+    positionTitle: "",
+    skillsRequired: "",
+    fromDate: "",
+    toDate: ""
+  })
+
+  const handleSubmit = (e) => {
+    e.preventDefault()
+  }
 
   return (
     <>

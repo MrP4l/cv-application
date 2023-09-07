@@ -1,7 +1,7 @@
 import { useState } from 'react'
 import './PracticalExperience.css'
 
-function PracticalExperience({ companyName, positionTitle, skillsRequired, fromDate, toDate, handleEdit, handleSubmit }) {
+function PracticalExperience({ companyName, positionTitle, skillsRequired, fromDate, toDate, handleChange, handleSubmit }) {
     return (
         <>
             <div>
@@ -15,6 +15,7 @@ function PracticalExperience({ companyName, positionTitle, skillsRequired, fromD
                             type='text'
                             name='company_name'
                             id='companyName'
+                            onChange={handleChange}
                         />
                     </label>
                     <label>
@@ -25,6 +26,7 @@ function PracticalExperience({ companyName, positionTitle, skillsRequired, fromD
                             type='text'
                             name='position_title'
                             id='positionTitle'
+                            onChange={handleChange}
                         />
                     </label>
                     <label>
@@ -35,6 +37,7 @@ function PracticalExperience({ companyName, positionTitle, skillsRequired, fromD
                             type='text'
                             name='skills_required'
                             id='skillsRequired'
+                            onChange={handleChange}
                         />
                     </label>
                     <label>
@@ -44,6 +47,7 @@ function PracticalExperience({ companyName, positionTitle, skillsRequired, fromD
                             type='date'
                             name='from_date'
                             id='fromDate'
+                            onChange={handleChange}
                         />
                     </label>
                     <label>
@@ -53,13 +57,13 @@ function PracticalExperience({ companyName, positionTitle, skillsRequired, fromD
                             type='date'
                             name='to_date'
                             id='toDate'
+                            onChange={handleChange}
                         />
                     </label>
                     <button
                         type="submit"
                         name="edit"
                         id="edit"
-                        onSubmit={handleEdit}
                     > Edit
                     </button>
                     <button

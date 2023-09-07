@@ -6,5 +6,15 @@
 }
 
 form {
-  border: solid white;
+  border: 1px solid white;
+}
+
+#personalDataOutput {
+  display: flex;
+}
+
+#personalDataOutput > div {
+  border: 1px solid tomato;
+  height: 150px;
+  width: 100%;
 }
