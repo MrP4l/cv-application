@@ -13,7 +13,7 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
                             value={firstName}
                             placeholder='First Name'
                             type='text'
-                            name='firstName'
+                            name='first_name'
                             id='firstName'
                             onChange={handleChange}
                         />
@@ -86,13 +86,13 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
                     </label>
                     <button
                         type="submit"
-                        name="edit"
+                        name="edit_button"
                         id="edit"
                     > Edit
                     </button>
                     <button
                         type="submit"
-                        name="submit"
+                        name="submit_button"
                         id="submit"
                     > Submit
                     </button>
