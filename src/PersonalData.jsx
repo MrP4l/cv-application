@@ -13,7 +13,7 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
                             value={firstName}
                             placeholder='First Name'
                             type='text'
-                            name='first_Name'
+                            name='firstName'
                             id='firstName'
                             onChange={handleChange}
                         />

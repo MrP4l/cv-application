@@ -15,7 +15,7 @@ function PersonalDataOutput({ firstName, lastName, address, email, phoneNumber, 
         <>
             <div id='personalDataOutput'>
                 <div id='firstName'>
-                    {firstName}
+                    value={firstName}
                 </div>
                 <div id='lastName'>
                     {lastName}
