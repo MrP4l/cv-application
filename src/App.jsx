@@ -17,9 +17,11 @@ function App() {
 
   const handleSubmit = (e) => {
     e.preventDefault()
+    // Bug #1 buttonName is empty
     const buttonName = e.target.name;
-    console.log('hey that is a submit', buttonName)
 
+    console.log('hey that is a submit', buttonName)
+    // Bug #2 this reset the output div not the input field
     if (buttonName === "submit_button") {
       setValue((value) => ({
           ...value,
