@@ -1,7 +1,6 @@
-import { useState } from 'react'
 import './PersonalData.css'
 
-function PersonalData({ firstName, lastName, address, email, phoneNumber, birthDate, linkedin, handleChange, handleSubmit }) {
+function PersonalData({ formData, handleChange, handleSubmit, handleClick }) {
     return (
         <>
             <div>
@@ -10,90 +9,92 @@ function PersonalData({ firstName, lastName, address, email, phoneNumber, birthD
                     <label>
                         First name
                         <input
-                            value={firstName}
                             placeholder='First Name'
                             type='text'
                             name='first_name'
                             id='firstName'
                             onChange={handleChange}
+                            value={formData.form1.first_name ?? ''}
                         />
                     </label>
                     <label>
                         Last name
                         <input
-                            value={lastName}
                             placeholder='Last Name'
                             name="last_name"
                             type='text'
                             id='secondName'
                             onChange={handleChange}
-                        />
+                            value={formData.form1.last_name ?? ''}
+                            />
                     </label>
                     <label>
                         Address
                         <input
-                            value={address}
                             placeholder='Address'
                             name="address"
                             type='text'
                             id='address'
                             onChange={handleChange}
-                        />
+                            value={formData.form1.address ?? ''}
+                            />
                     </label>
                     <label>
                         Email
                         <input
-                            value={email}
                             placeholder='Email'
                             name="email"
                             type='email'
                             id='email'
                             onChange={handleChange}
-                        />
+                            value={formData.form1.email ?? ''}
+                            />
                     </label>
                     <label>
                         Phone Number
                         <input
-                            value={phoneNumber}
                             placeholder='Phone Number'
                             name="phone_number"
                             type='tel'
                             id='phoneNumber'
                             onChange={handleChange}
-                        />
+                            value={formData.form1.phone_number ?? ''}
+                            />
                     </label>
                     <label>
                         Birth Date
                         <input
-                            value={birthDate}
                             placeholder='Birth Date'
                             name="birth_date"
                             type='date'
                             id='birthDate'
                             onChange={handleChange}
-                        />
+                            value={formData.form1.birth_date ?? ''}
+                            />
                     </label>
                     <label>
                         LinkedIn
                         <input
-                            value={linkedin}
                             placeholder='LinkedIn'
                             name="linkedin"
                             type='text'
                             id='linkedin'
                             onChange={handleChange}
+                            value={formData.form1.linkedin ?? ''}
                         />
                     </label>
                     <button
                         type="submit"
-                        name="edit_button"
-                        id="edit"
+                        name="edit_form1_button"
+                        id="editForm1Button"
+                        onClick={handleClick}
                     > Edit
                     </button>
                     <button
                         type="submit"
-                        name="submit_button"
-                        id="submit"
+                        name="submit_form1_button"
+                        id="submitForm1Button"
+                        onClick={handleClick}
                     > Submit
                     </button>
                 </form>

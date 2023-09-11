@@ -1,0 +1,9 @@
+#educationalExperienceOutput {
+    display: flex;
+}
+
+#educationalExperienceOutput>div {
+    border: 1px solid rgb(26, 197, 86);
+    height: 150px;
+    width: 100%;
+}

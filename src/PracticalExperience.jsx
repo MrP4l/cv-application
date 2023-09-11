@@ -1,7 +1,6 @@
-import { useState } from 'react'
 import './PracticalExperience.css'
 
-function PracticalExperience({ companyName, positionTitle, skillsRequired, fromDate, toDate, handleChange, handleSubmit }) {
+function PracticalExperience({ formData, handleChange, handleSubmit, handleClick }) {
     return (
         <>
             <div>
@@ -10,7 +9,7 @@ function PracticalExperience({ companyName, positionTitle, skillsRequired, fromD
                     <label>
                         Company Name
                         <input
-                            value={companyName}
+                            value={formData.form4.company_name ?? ''}
                             placeholder='Company Name'
                             type='text'
                             name='company_name'
@@ -21,7 +20,7 @@ function PracticalExperience({ companyName, positionTitle, skillsRequired, fromD
                     <label>
                         Position Title
                         <input
-                            value={positionTitle}
+                            value={formData.form4.position_title ?? ''}
                             placeholder='Position Title'
                             type='text'
                             name='position_title'
@@ -30,20 +29,9 @@ function PracticalExperience({ companyName, positionTitle, skillsRequired, fromD
                         />
                     </label>
                     <label>
-                        Skills Required
-                        <input
-                            value={skillsRequired}
-                            placeholder='Skills Required'
-                            type='text'
-                            name='skills_required'
-                            id='skillsRequired'
-                            onChange={handleChange}
-                        />
-                    </label>
-                    <label>
                         From
                         <input
-                            value={fromDate}
+                            value={formData.form4.from_date ?? ''}
                             type='date'
                             name='from_date'
                             id='fromDate'
@@ -53,7 +41,7 @@ function PracticalExperience({ companyName, positionTitle, skillsRequired, fromD
                     <label>
                         To
                         <input
-                            value={toDate}
+                            value={formData.form4.to_date ?? ''}
                             type='date'
                             name='to_date'
                             id='toDate'
@@ -62,14 +50,16 @@ function PracticalExperience({ companyName, positionTitle, skillsRequired, fromD
                     </label>
                     <button
                         type="submit"
-                        name="edit"
+                        name="edit_form4_button"
                         id="edit"
-                    > Edit
+                        onClick={handleClick}
+                        > Edit
                     </button>
                     <button
                         type="submit"
-                        name="submit"
+                        name="submit_form4_button"
                         id="submit"
+                        onClick={handleClick}
                     > Submit
                     </button>
                 </form>

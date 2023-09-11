@@ -1,0 +1,9 @@
+#personalDataOutput {
+    display: flex;
+}
+
+#personalDataOutput>div {
+    border: 1px solid tomato;
+    height: 150px;
+    width: 100%;
+}

@@ -1,20 +1,10 @@
 #root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
-  text-align: center;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 2rem;
+    text-align: center;
 }
 
 form {
-  border: 1px solid white;
-}
-
-#personalDataOutput {
-  display: flex;
-}
-
-#personalDataOutput > div {
-  border: 1px solid tomato;
-  height: 150px;
-  width: 100%;
+    border: 1px solid white;
 }

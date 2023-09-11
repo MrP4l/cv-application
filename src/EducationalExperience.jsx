@@ -1,7 +1,6 @@
-import { useState } from 'react'
 import './EducationalExperience.css'
 
-function EducationalExperience({ schoolName, fromDate, toDate, handleChange, handleSubmit }) {
+function EducationalExperience({ formData, handleChange, handleSubmit, handleClick }) {
     return (
         <>
             <div>
@@ -10,7 +9,7 @@ function EducationalExperience({ schoolName, fromDate, toDate, handleChange, han
                     <label>
                         School Name
                         <input
-                            value={schoolName}
+                            value={formData.form3.school_name ?? ''}
                             placeholder='School Name'
                             type='text'
                             name='school_name'
@@ -21,7 +20,7 @@ function EducationalExperience({ schoolName, fromDate, toDate, handleChange, han
                     <label>
                         From
                         <input
-                            value={fromDate}
+                            value={formData.form3.from_date ?? ''}
                             type='date'
                             name='from_date'
                             id='fromDate'
@@ -31,7 +30,7 @@ function EducationalExperience({ schoolName, fromDate, toDate, handleChange, han
                     <label>
                         To
                         <input
-                            value={toDate}
+                            value={formData.form3.to_date ?? ''}
                             type='date'
                             name='to_date'
                             id='toDate'
@@ -40,15 +39,16 @@ function EducationalExperience({ schoolName, fromDate, toDate, handleChange, han
                     </label>
                     <button
                         type="submit"
-                        name="edit"
+                        name="edit_form3_button"
                         id="edit"
-                        onChange={handleChange}
+                        onClick={handleClick}
                     > Edit
                     </button>
                     <button
                         type="submit"
-                        name="submit"
+                        name="submit_form3_button"
                         id="submit"
+                        onClick={handleClick}
                     > Submit
                     </button>
                 </form>

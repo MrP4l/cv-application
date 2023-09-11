@@ -1,7 +1,6 @@
-import { useState } from 'react'
 import './Bio.css'
 
-function Bio({ bioText, handleChange, handleSubmit }) {
+function Bio({ formData, handleChange, handleSubmit, handleClick }) {
     return (
         <>
             <div>
@@ -11,20 +10,24 @@ function Bio({ bioText, handleChange, handleSubmit }) {
                         Describe yourself
                         <textarea
                             id='textArea'
-                            value={bioText}
+                            name='bio_text'
+                            type='text'
                             onChange={handleChange}
+                            value={formData.form2.bio_text ?? ''}
                         />
                     </label>
                     <button
                         type="submit"
-                        name="edit"
-                        id="edit"
+                        name="edit_form2_button"
+                        id="editForm1Button"
+                        onClick={handleClick}
                     > Edit
                     </button>
                     <button
                         type="submit"
-                        name="submit"
-                        id="submit"
+                        name="submit_form2_button"
+                        id="submitForm1Button"
+                        onClick={handleClick}
                     > Submit
                     </button>
                 </form>
