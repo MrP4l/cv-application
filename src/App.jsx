@@ -24,6 +24,8 @@ function App() {
 			form3: { school_name: '', from_date: '', to_date: '' },
 			form4: { company_name: '', position_title: '', from_date: '', to_date: '' },
 		});
+	const [educationalExperienceOutputs, setEducationalExperienceOutputs] = useState([]);
+	const [practicalExperienceOutputs, setPracticalExperienceOutputs] = useState([]);
 
 	const buttonCallbacks = {
 		submit_form1_button: () => {
@@ -61,14 +63,28 @@ function App() {
 			setFormData({ ...outputData, form2: { bio_text: outputData.form2.bio_text } })
 		},
 		submit_form3_button: () => {
-			setFormData({
-				...formData,
-				form3: {
-					school_name: '',
-					from_date: '',
-					to_date: ''
-				}
-			});
+			const { school_name, from_date, to_date } = formData.form3;
+			if (school_name || from_date || to_date) {
+				const newEducationalExperienceOutput = (
+					<EducationalExperienceOutput
+						key={educationalExperienceOutputs.length}
+						outputData={formData.form3}
+					/>
+				);
+				setEducationalExperienceOutputs([
+					...educationalExperienceOutputs,
+					newEducationalExperienceOutput,
+				]);
+				setFormData({
+					...formData,
+					form3: {
+						school_name: '',
+						from_date: '',
+						to_date: ''
+					}
+				});
+				console.log('e:', educationalExperienceOutputs)
+			}
 		},
 		edit_form3_button: () => {
 			setFormData({
@@ -78,18 +94,31 @@ function App() {
 					from_date: outputData.form3.from_date,
 					to_date: outputData.form3.to_date
 				}
+				// Add the delete of the last one component created and fill the input fields with the values of it 
 			})
 		},
 		submit_form4_button: () => {
-			setFormData({
-				...outputData,
-				form4: {
-					company_name: '',
-					from_date: '',
-					to_date: ''
-				}
-			// Add the delete of the last one component created and the input fields with the values of it 
-			})
+			const { company_name, position_title, from_date, to_date } = formData.form4;
+			if (company_name || position_title || from_date || to_date) {
+				const newPracticalExperienceOutput = (
+					<PracticalExperienceOutput
+						key={practicalExperienceOutputs.length}
+						outputData={formData.form4}
+					/>
+				);
+				setPracticalExperienceOutputs([
+					...practicalExperienceOutputs,
+					newPracticalExperienceOutput,
+				]);
+				setFormData({
+					...outputData,
+					form4: {
+						company_name: '',
+						from_date: '',
+						to_date: ''
+					}
+				})
+			}
 		},
 		edit_form4_button: () => {
 			setFormData({
@@ -100,10 +129,9 @@ function App() {
 					from_date: outputData.form4.from_date,
 					to_date: outputData.form3.to_date
 				}
-			// Add the delete of the last one component created and the input fields with the values of it 
+				// Add the delete of the last one component created and fill the input fields with the values of it 
 			})
 		},
-
 	}
 
 	const handleClick = (e) => {
@@ -172,13 +200,17 @@ function App() {
 					<PersonalData formData={formData} handleSubmit={handleSubmit} handleChange={handleChange} handleClick={handleClick} />
 					<Bio formData={formData} handleSubmit={handleSubmit} handleChange={handleChange} handleClick={handleClick} />
 					<EducationalExperience formData={formData} handleSubmit={handleSubmit} handleChange={handleChange} handleClick={handleClick} />
-					<PracticalExperience formData={formData} handleSubmit={handleSubmit} handleChange={handleChange} handleClick={handleClick}/>
+					<PracticalExperience formData={formData} handleSubmit={handleSubmit} handleChange={handleChange} handleClick={handleClick} />
 				</div>
 				<div id='outputContainer'>
 					<PersonalDataOutput outputData={outputData} />
 					<BioOutput outputData={outputData} />
-					<EducationalExperienceOutput outputData={outputData} />
-					<PracticalExperienceOutput outputData={outputData} />
+					{educationalExperienceOutputs.map((output, index) => (
+						<div key={index}>{output}</div>
+					))}
+					{practicalExperienceOutputs.map((output, index) => (
+						<div key={index}>{output}</div>
+					))}
 				</div>
 			</div>
 		</>
