@@ -83,19 +83,26 @@ function App() {
 						to_date: ''
 					}
 				});
-				console.log('e:', educationalExperienceOutputs)
+				console.log('ed exp:', educationalExperienceOutputs)
 			}
 		},
 		edit_form3_button: () => {
-			setFormData({
-				...outputData,
-				form3: {
-					school_name: outputData.form3.school_name,
-					from_date: outputData.form3.from_date,
-					to_date: outputData.form3.to_date
-				}
-				// Add the delete of the last one component created and fill the input fields with the values of it 
-			})
+			// Thats not work properly, it doesn't refresh the array, need to update the state to rerender (?)
+			if (educationalExperienceOutputs.length > 0) {
+				const updatedEducationalExperienceOutputs = removeLastItem(educationalExperienceOutputs);
+				if (updatedEducationalExperienceOutputs.length > 0) {
+					const lastOneOutputData = updatedEducationalExperienceOutputs[updatedEducationalExperienceOutputs.length - 1].props.outputData;
+					setFormData({
+						...outputData,
+						form3: {
+							school_name: lastOneOutputData.school_name,
+							from_date: lastOneOutputData.from_date,
+							to_date: lastOneOutputData.to_date
+						}
+					});
+				} 
+				setEducationalExperienceOutputs(updatedEducationalExperienceOutputs);
+			}
 		},
 		submit_form4_button: () => {
 			const { company_name, position_title, from_date, to_date } = formData.form4;
@@ -192,6 +199,15 @@ function App() {
 			}
 		});
 	};
+
+	function removeLastItem(array) {
+		if (array.length === 0) {
+			return [];
+		}
+		const newArray = [...array];
+		newArray.pop();
+		return newArray;
+	}
 
 	return (
 		<>
