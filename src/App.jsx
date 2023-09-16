@@ -58,6 +58,8 @@ function App() {
 		},
 		submit_form2_button: () => {
 			setFormData({ ...formData, form2: { bio_text: '' } })
+			console.log('formData:', formData);
+			console.log('outputData:', outputData);
 		},
 		edit_form2_button: () => {
 			setFormData({ ...outputData, form2: { bio_text: outputData.form2.bio_text } })
@@ -73,7 +75,7 @@ function App() {
 				);
 				setEducationalExperienceOutputs([
 					...educationalExperienceOutputs,
-					newEducationalExperienceOutput,
+					newEducationalExperienceOutput
 				]);
 				setFormData({
 					...formData,
@@ -83,10 +85,14 @@ function App() {
 						to_date: ''
 					}
 				});
-				console.log('ed exp:', educationalExperienceOutputs)
+				console.log('formData:', formData);
+				console.log('outputData:', outputData);
+				console.log('educationalExperienceOutputs:', educationalExperienceOutputs);
+				console.log('newEducationalExperienceOutput:', newEducationalExperienceOutput);
 			}
 		},
 		edit_form3_button: () => {
+			console.log('ed exp outs:', educationalExperienceOutputs);
 			// Thats not work properly, it doesn't refresh the array, need to update the state to rerender (?)
 			if (educationalExperienceOutputs.length > 0) {
 				const updatedEducationalExperienceOutputs = removeLastItem(educationalExperienceOutputs);
@@ -100,7 +106,7 @@ function App() {
 							to_date: lastOneOutputData.to_date
 						}
 					});
-				} 
+				}
 				setEducationalExperienceOutputs(updatedEducationalExperienceOutputs);
 			}
 		},
@@ -159,45 +165,69 @@ function App() {
 
 		console.log(`Handling change for ${name}: ${newValue}`);
 
-		setFormData({
-			...formData,
-			form1: {
-				...formData.form1,
-				[name]: newValue
-			},
-			form2: {
-				...formData.form2,
-				[name]: newValue
-			},
-			form3: {
+		if (name === 'first_name' || name === 'last_name' || name === 'address' || name === 'email' || name === 'phone_number') {
+			setFormData({
+				...formData,
+				form1: {
+					...formData.form1,
+					[name]: newValue
+				}
+			});
+			setOutputData({
+				...outputData,
+				form1: {
+					...outputData.form1,
+					[name]: newValue
+				}
+			});
+		} else if (name === 'bio_text') {
+			setFormData({
+				...formData,
+				form2: {
+					...formData.form2,
+					[name]: newValue
+				}
+			});
+			setOutputData({
+				...outputData,
+				form2: {
+					...outputData.form2,
+					[name]: newValue
+				}
+			});
+		} else if (name === 'school_name' || name === 'from_date' || name === 'to_date') {
+			setFormData({
+			  ...formData,
+			  form3: {
 				...formData.form3,
 				[name]: newValue
-			},
-			form4: {
-				...formData.form4,
-				[name]: newValue
-			}
-		});
-
-		setOutputData({
-			...outputData,
-			form1: {
-				...outputData.form1,
-				[name]: newValue
-			},
-			form2: {
-				...outputData.form2,
-				[name]: newValue
-			},
-			form3: {
+			  }
+			});
+			setOutputData({
+			  ...outputData,
+			  form3: {
 				...outputData.form3,
 				[name]: newValue
-			},
-			form4: {
+			  }
+			});
+		  } else if (name === 'company_name' || name === 'position_title' || name === 'from_date' || name === 'to_date') {
+			setFormData({
+			  ...formData,
+			  form4: {
+				...formData.form4,
+				[name]: newValue
+			  }
+			});
+			setOutputData({
+			  ...outputData,
+			  form4: {
 				...outputData.form4,
 				[name]: newValue
-			}
-		});
+			  }
+			});
+		  }
+		console.log('formData:', formData);
+		console.log('outputData:', outputData);
 	};
 
 	function removeLastItem(array) {
