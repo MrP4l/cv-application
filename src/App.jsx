@@ -73,10 +73,7 @@ function App() {
 						outputData={formData.form3}
 					/>
 				);
-				setEducationalExperienceOutputs([
-					...educationalExperienceOutputs,
-					newEducationalExperienceOutput
-				]);
+
 				setFormData({
 					...formData,
 					form3: {
@@ -85,6 +82,12 @@ function App() {
 						to_date: ''
 					}
 				});
+
+				setEducationalExperienceOutputs([
+					...educationalExperienceOutputs,
+					newEducationalExperienceOutput
+				]);
+
 				console.log('formData:', formData);
 				console.log('outputData:', outputData);
 				console.log('educationalExperienceOutputs:', educationalExperienceOutputs);
@@ -92,8 +95,8 @@ function App() {
 			}
 		},
 		edit_form3_button: () => {
-			console.log('ed exp outs:', educationalExperienceOutputs);
-			// Thats not work properly, it doesn't refresh the array, need to update the state to rerender (?)
+			console.log('educationalExperienceOutputs:', educationalExperienceOutputs);
+		// Try to change the logic below here	
 			if (educationalExperienceOutputs.length > 0) {
 				const updatedEducationalExperienceOutputs = removeLastItem(educationalExperienceOutputs);
 				if (updatedEducationalExperienceOutputs.length > 0) {
@@ -108,6 +111,7 @@ function App() {
 					});
 				}
 				setEducationalExperienceOutputs(updatedEducationalExperienceOutputs);
+				console.log("updatedEducationalExperienceOutputs:", updatedEducationalExperienceOutputs)
 			}
 		},
 		submit_form4_button: () => {
@@ -197,35 +201,35 @@ function App() {
 			});
 		} else if (name === 'school_name' || name === 'from_date' || name === 'to_date') {
 			setFormData({
-			  ...formData,
-			  form3: {
-				...formData.form3,
-				[name]: newValue
-			  }
+				...formData,
+				form3: {
+					...formData.form3,
+					[name]: newValue
+				}
 			});
 			setOutputData({
-			  ...outputData,
-			  form3: {
-				...outputData.form3,
-				[name]: newValue
-			  }
+				...outputData,
+				form3: {
+					...outputData.form3,
+					[name]: newValue
+				}
 			});
-		  } else if (name === 'company_name' || name === 'position_title' || name === 'from_date' || name === 'to_date') {
+		} else if (name === 'company_name' || name === 'position_title' || name === 'from_date' || name === 'to_date') {
 			setFormData({
-			  ...formData,
-			  form4: {
-				...formData.form4,
-				[name]: newValue
-			  }
+				...formData,
+				form4: {
+					...formData.form4,
+					[name]: newValue
+				}
 			});
 			setOutputData({
-			  ...outputData,
-			  form4: {
-				...outputData.form4,
-				[name]: newValue
-			  }
+				...outputData,
+				form4: {
+					...outputData.form4,
+					[name]: newValue
+				}
 			});
-		  }
+		}
 		console.log('formData:', formData);
 		console.log('outputData:', outputData);
 	};
