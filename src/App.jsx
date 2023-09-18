@@ -90,28 +90,21 @@ function App() {
 
 				console.log('formData:', formData);
 				console.log('outputData:', outputData);
+				console.log('outputData.form3:', outputData.form3);
 				console.log('educationalExperienceOutputs:', educationalExperienceOutputs);
 				console.log('newEducationalExperienceOutput:', newEducationalExperienceOutput);
 			}
 		},
 		edit_form3_button: () => {
-			console.log('educationalExperienceOutputs:', educationalExperienceOutputs);
-		// Try to change the logic below here	
-			if (educationalExperienceOutputs.length > 0) {
-				const updatedEducationalExperienceOutputs = removeLastItem(educationalExperienceOutputs);
-				if (updatedEducationalExperienceOutputs.length > 0) {
-					const lastOneOutputData = updatedEducationalExperienceOutputs[updatedEducationalExperienceOutputs.length - 1].props.outputData;
-					setFormData({
-						...outputData,
-						form3: {
-							school_name: lastOneOutputData.school_name,
-							from_date: lastOneOutputData.from_date,
-							to_date: lastOneOutputData.to_date
-						}
-					});
+		const { school_name, from_date, to_date } = outputData.form3;
+			if (school_name || from_date || to_date) {
+				const data = {
+					school_name: outputData.form3.school_name
 				}
-				setEducationalExperienceOutputs(updatedEducationalExperienceOutputs);
-				console.log("updatedEducationalExperienceOutputs:", updatedEducationalExperienceOutputs)
+				console.log('data:',data)
+				setFormData({
+					...outputData
+				})
 			}
 		},
 		submit_form4_button: () => {
