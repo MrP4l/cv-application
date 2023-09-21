@@ -83,6 +83,9 @@ function App() {
 					}
 				});
 
+				const test = [...educationalExperienceOutputs];
+				test.push(newEducationalExperienceOutput);
+				console.log('test:', test)
 				setEducationalExperienceOutputs([
 					...educationalExperienceOutputs,
 					newEducationalExperienceOutput
@@ -99,7 +102,9 @@ function App() {
 		const { school_name, from_date, to_date } = outputData.form3;
 			if (school_name || from_date || to_date) {
 				const data = {
-					school_name: outputData.form3.school_name
+					school_name: outputData.form3.school_name,
+					from_date: outputData.form3.from_date,
+					to_date: outputData.form3.to_date
 				}
 				console.log('data:',data)
 				setFormData({
