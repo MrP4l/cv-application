@@ -26,6 +26,7 @@ function App() {
 		});
 	const [educationalExperienceOutputs, setEducationalExperienceOutputs] = useState([]);
 	const [practicalExperienceOutputs, setPracticalExperienceOutputs] = useState([]);
+	const [edExpLog, setEdExpLog] = useState([]);
 
 	const buttonCallbacks = {
 		submit_form1_button: () => {
@@ -65,14 +66,15 @@ function App() {
 			setFormData({ ...outputData, form2: { bio_text: outputData.form2.bio_text } })
 		},
 		submit_form3_button: () => {
-			const { school_name, from_date, to_date } = formData.form3;
-			if (school_name || from_date || to_date) {
-				const newEducationalExperienceOutput = (
-					<EducationalExperienceOutput
-						key={educationalExperienceOutputs.length}
-						outputData={formData.form3}
-					/>
-				);
+		//	const { school_name, from_date, to_date } = formData.form3;
+		//	if (school_name || from_date || to_date) {
+
+			//	const newEducationalExperienceOutput = (
+			//		<EducationalExperienceOutput
+			//			key={educationalExperienceOutputs.length}
+			//			outputData={formData.form3}
+			//		/>
+			//	);
 
 				setFormData({
 					...formData,
@@ -82,21 +84,18 @@ function App() {
 						to_date: ''
 					}
 				});
+			
 
-				const test = [...educationalExperienceOutputs];
-				test.push(newEducationalExperienceOutput);
-				console.log('test:', test)
-				setEducationalExperienceOutputs([
-					...educationalExperienceOutputs,
-					newEducationalExperienceOutput
-				]);
+			//	setEducationalExperienceOutputs([...educationalExperienceOutputs,newEducationalExperienceOutput]);
+
 
 				console.log('formData:', formData);
 				console.log('outputData:', outputData);
 				console.log('outputData.form3:', outputData.form3);
+				console.log('edExpLog:', edExpLog);
 				console.log('educationalExperienceOutputs:', educationalExperienceOutputs);
-				console.log('newEducationalExperienceOutput:', newEducationalExperienceOutput);
-			}
+			//	console.log('newEducationalExperienceOutput:', newEducationalExperienceOutput);
+			//}
 		},
 		edit_form3_button: () => {
 		const { school_name, from_date, to_date } = outputData.form3;
@@ -240,7 +239,12 @@ function App() {
 		newArray.pop();
 		return newArray;
 	}
-
+	//{edExpLog.map((output, index) => (
+	//	<div key={index}>{output}</div>
+	//))}
+	//{practicalExperienceOutputs.map((output, index) => (
+	//	<div key={index}>{output}</div>
+	//))}
 	return (
 		<>
 			<div id='container'>
@@ -253,12 +257,8 @@ function App() {
 				<div id='outputContainer'>
 					<PersonalDataOutput outputData={outputData} />
 					<BioOutput outputData={outputData} />
-					{educationalExperienceOutputs.map((output, index) => (
-						<div key={index}>{output}</div>
-					))}
-					{practicalExperienceOutputs.map((output, index) => (
-						<div key={index}>{output}</div>
-					))}
+					<EducationalExperienceOutput outputData={outputData} />
+					<PracticalExperienceOutput outputData={outputData} />
 				</div>
 			</div>
 		</>
