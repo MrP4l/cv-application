@@ -76,14 +76,10 @@ function App() {
 					/>
 				);
 
-				setEducationalExperienceOutputs((currentEducationalExperienceOutputs) => {
-					return [...currentEducationalExperienceOutputs, newEducationalExperienceOutput];
-				  });
-			  
-			//	setEducationalExperienceOutputs([
-			//		...educationalExperienceOutputs,
-			//		newEducationalExperienceOutput
-			//	]);
+				setEducationalExperienceOutputs([
+					...educationalExperienceOutputs,
+					newEducationalExperienceOutput
+				]);
 
 				setFormData({
 					...formData,
@@ -108,7 +104,17 @@ function App() {
 					from_date: outputData.form3.from_date,
 					to_date: outputData.form3.to_date
 				}
+
 				console.log('data:', data)
+
+				console.log('educationalExperienceOutputs.length:', educationalExperienceOutputs.length);
+
+				const newArray = removeLastItem(educationalExperienceOutputs);
+				setEducationalExperienceOutputs(newArray);
+
+				console.log('educationalExperienceOutputs:', educationalExperienceOutputs);
+				console.log('newArray:', newArray);
+
 				setFormData({
 					...outputData
 				})
@@ -132,23 +138,44 @@ function App() {
 					...outputData,
 					form4: {
 						company_name: '',
+						position_title: '',
 						from_date: '',
 						to_date: ''
 					}
 				})
+
+				console.log('formData:', formData);
+				console.log('outputData:', outputData);
+				console.log('outputData.form4:', outputData.form4);
+				console.log('educationalExperienceOutputs:', practicalExperienceOutputs);
 			}
 		},
 		edit_form4_button: () => {
-			setFormData({
-				...outputData,
-				form4: {
+			const { company_name, position_title, from_date, to_date } = outputData.form4;
+			if (company_name || position_title || from_date || to_date) {
+				const data = {
 					company_name: outputData.form4.company_name,
 					position_title: outputData.form4.position_title,
 					from_date: outputData.form4.from_date,
-					to_date: outputData.form3.to_date
+					to_date: outputData.form4.to_date
 				}
-				// Add the delete of the last one component created and fill the input fields with the values of it 
-			})
+			//	The edit on the last element doesn't work properly
+				console.log('data:', data)
+
+				console.log('educationalExperienceOutputs.length:', practicalExperienceOutputs.length);
+
+				const newArray = removeLastItem(practicalExperienceOutputs);
+				setPracticalExperienceOutputs(newArray);
+
+				console.log('practicalExperienceOutputs:', practicalExperienceOutputs);
+				console.log('newArray:', newArray);
+
+				setFormData({
+					...outputData
+				})
+				console.log('practicalExperienceOutputs:', practicalExperienceOutputs);
+
+			}
 		},
 	}
 
@@ -243,7 +270,7 @@ function App() {
 		newArray.pop();
 		return newArray;
 	}
-	
+
 	return (
 		<>
 			<div id='container'>
